@@ -1,24 +1,20 @@
-// Ye code ads ko control karega
 async function startAds() {
   try {
-    const { AdMob } = Capacitor.Plugins;
-    
-    // AdMob ko shuru karo
-    await AdMob.initialize();
-
-    // Banner ad dikhao (Niche wali side par)
-    await AdMob.showBanner({
-      adId: 'ca-app-pub-3940256099942544/6300978111', // Test ID hai
-      position: 'BOTTOM_CENTER',
-      margin: 0,
-      isTesting: true 
-    });
-    
-    console.log("Ads ready and showing!");
+    // Check karen ke kya hum mobile app ke andar hain
+    if (typeof Capacitor !== 'undefined' && Capacitor.isNativePlatform()) {
+      const { AdMob } = Capacitor.Plugins;
+      await AdMob.initialize();
+      await AdMob.showBanner({
+        adId: 'ca-app-pub-3940256099942544/6300978111',
+        position: 'BOTTOM_CENTER',
+        margin: 0,
+        isTesting: true 
+      });
+    }
   } catch (e) {
-    console.log("Ads error: ", e);
+    console.log("AdMob skipped or error");
   }
 }
 
-// Jab puri game load ho jaye tab ad dikhao
-window.onload = startAds;
+// Foran chalane ki bajaye 2 second baad chalayen taake game load ho jaye
+setTimeout(startAds, 2000);
