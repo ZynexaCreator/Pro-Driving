@@ -2,7 +2,7 @@
   "name": "pro-driving",
   "version": "1.0.0",
   "scripts": {
-    "build": "mkdir -p www && cp index.html www/"
+    "build": "mkdir -p www && cp index.html ads.js www/"
   },
   "dependencies": {
     "@capacitor/android": "^5.0.0",
