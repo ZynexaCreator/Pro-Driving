@@ -1,24 +1,24 @@
-// Ye code Capacitor ke plugins ko pakray ga
-const { AdMob } = Capacitor.Plugins;
-
-async function showAds() {
+// Ye code ads ko control karega
+async function startAds() {
   try {
-    // 1. AdMob ko shuru karo
+    const { AdMob } = Capacitor.Plugins;
+    
+    // AdMob ko shuru karo
     await AdMob.initialize();
 
-    // 2. Banner ad dikhao (Niche wali screen par)
+    // Banner ad dikhao (Niche wali side par)
     await AdMob.showBanner({
-      adId: 'ca-app-pub-3940256099942544/6300978111', // Ye Google ki Test ID hai
+      adId: 'ca-app-pub-3940256099942544/6300978111', // Test ID hai
       position: 'BOTTOM_CENTER',
       margin: 0,
       isTesting: true 
     });
     
-    console.log("Ad success!");
+    console.log("Ads ready and showing!");
   } catch (e) {
-    console.log("Ad error: ", e);
+    console.log("Ads error: ", e);
   }
 }
 
-// Jab game poori load ho jaye, tab ad dikhao
-window.onload = showAds;
+// Jab puri game load ho jaye tab ad dikhao
+window.onload = startAds;
