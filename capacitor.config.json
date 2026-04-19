@@ -1,0 +1,6 @@
+{
+  "appId": "com.zynexa.prodriving",
+  "appName": "Pro Driving",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}
