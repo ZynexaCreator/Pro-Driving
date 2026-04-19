@@ -2,5 +2,10 @@
   "appId": "com.zynexa.prodriving",
   "appName": "Pro Driving",
   "webDir": "www",
-  "bundledWebRuntime": false
+  "bundledWebRuntime": false,
+  "plugins": {
+    "AdMob": {
+      "androidAppId": "ca-app-pub-3940256099942544~3347511713"
+    }
+  }
 }
